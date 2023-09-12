@@ -3,7 +3,7 @@
     */
 const title = document.getElementsByTagName("h1")[0];
 
-const changeTitle = function (newTitle) {
+const changeTitle = (newTitle) => {
   title.textContent = newTitle;
 };
 changeTitle("Nuovo titolo");
@@ -12,7 +12,7 @@ changeTitle("Nuovo titolo");
        Scrivi una funzione per aggiungere al titolo della pagina una classe "myHeading"
     */
 
-const addClassToTitle = function (title) {
+const addClassToTitle = (title) => {
   title.classList.add("myHeading");
 };
 
@@ -22,7 +22,7 @@ addClassToTitle(title);
        Scrivi una funzione per che cambi il testo dei p figli di un div
       */
 
-const changePcontent = function () {
+const changePcontent = () => {
   const divP = document.querySelectorAll("div > p");
   divP.forEach((element) => {
     element.textContent = "paragrafo cambiato";
@@ -35,7 +35,7 @@ changePcontent();
        Scrivi una funzione che cambi la proprietà href di ogni link (tranne quello nel footer) con il valore https://www.google.com
       */
 
-const changeUrls = function () {
+const changeUrls = () => {
   const links = document.querySelectorAll("a:not(footer a)");
 
   links.forEach(function (link) {
@@ -48,7 +48,7 @@ changeUrls();
        Scrivi una funzione che aggiunga un nuovo elemento lista alla seconda lista non ordinata
     */
 
-const addToTheSecond = function () {
+const addToTheSecond = () => {
   const ul = document.getElementById("secondList");
   const newItem = document.createElement("li");
   newItem.textContent = "nuovo elemento li";
@@ -60,7 +60,7 @@ addToTheSecond();
        Scrivi una funzione che aggiunga un secondo paragrafo al primo div
     */
 
-const addParagraph = function () {
+const addParagraph = () => {
   const firstDiv = document.querySelector("div");
   const newP = document.createElement("p");
   newP.textContent = "nuovo paragrafo";
@@ -73,7 +73,7 @@ addParagraph();
        Scrivi una funzione che faccia scomparire la prima lista non ordinata
     */
 
-const hideFirstUl = function () {
+const hideFirstUl = () => {
   const firstUl = document.querySelector("ul");
   if (firstUl) {
     firstUl.style.display = "none";
@@ -85,7 +85,7 @@ hideFirstUl();
        Scrivi una funzione che renda verde il background di ogni lista non ordinata
       */
 
-const paintItGreen = function () {
+const paintItGreen = () => {
   const ulElements = document.querySelectorAll("ul");
   ulElements.forEach((ul) => {
     ul.style.backgroundColor = "green";
@@ -97,7 +97,7 @@ paintItGreen();
        Scrivi una funzione che rimuova l'ultima lettera dall'h1 ogni volta che l'utente lo clicca
       */
 
-const makeItClickable = function () {
+const makeItClickable = () => {
   const h1Element = document.querySelector("h1");
   if (h1Element) {
     h1Element.addEventListener("click", () => {
@@ -111,7 +111,7 @@ makeItClickable();
        Crea una funzione che, al click sul footer, riveli l'URL del link interno come contenuto di un alert()
       */
 
-const revealFooterLink = function () {
+const revealFooterLink = () => {
   const footerElement = document.querySelector("footer");
   if (footerElement) {
     footerElement.addEventListener("click", () => {
@@ -129,7 +129,7 @@ revealFooterLink();
        La tabella avrà 5 elementi e questa struttura: immagine, nome prodotto, quantità, prezzo
     */
 
-const generateTable = function () {
+const generateTable = () => {
   const tableArea = document.getElementById("tableArea");
   if (tableArea) {
     const table = document.createElement("table");
@@ -171,7 +171,7 @@ addRow();
       Crea una funzione che nasconda le immagini della tabella quando eseguita
     */
 
-const hideAllImages = function () {
+const hideAllImages = () => {
   const tableImages = document.querySelectorAll("table img");
   tableImages.forEach((img) => {
     img.style.display = "none";
@@ -183,7 +183,7 @@ hideAllImages();
       Crea una funzione che cambi il colore del h2 con id "changeMyColor" con un colore random ad ogni click ricevuto
     */
 
-const changeColorWithRandom = function () {
+const changeColorWithRandom = () => {
   const h2Element = document.getElementById("changeMyColor");
   if (h2Element) {
     h2Element.addEventListener("click", () => {
@@ -199,7 +199,7 @@ changeColorWithRandom();
       Crea una funzione che elimini le vocali da ogni elemento testuale della pagina (puoi aiutarti con i nuovi metodi degli array di ES6)
     */
 
-const deleteVowels = function () {
+const deleteVowels = () => {
   const removeVowelsFromString = (str) => {
     return str.replace(/[aeiouAEIOU]/g, "");
   };
@@ -220,4 +220,7 @@ const deleteVowels = function () {
   traverseAndRemoveVowels(body);
 };
 
-deleteVowels();
+const callFunc = (element) => {
+  element.remove();
+  deleteVowels();
+};
